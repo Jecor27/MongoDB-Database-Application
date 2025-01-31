@@ -1,6 +1,6 @@
 import express from 'express'
 import mongoose from 'mongoose'
-
+import drink from './models/drink.js'
 import 'dotenv/config'
 
 const app = express()
