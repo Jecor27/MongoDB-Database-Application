@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <form action="/drinks" method="POST">
+        <!-- Drink Name -->
+        <input type="text" name="name" placeholder="Drink Name" required>
+    
+        <!-- Ingredients (dynamic input for multiple ingredients) -->
+        <div id="ingredients-container">
+            <div class="ingredient">
+                <input type="text" name="ingredients[0][name]" placeholder="Ingredient Name" required>
+                <input type="text" name="ingredients[0][amount]" placeholder="Amount" required>
+                <input type="text" name="ingredients[0][unit]" placeholder="Unit (e.g., oz, tbsp)">
+            </div>
+        </div>
+        <button type="button" onclick="addIngredient()">Add Another Ingredient</button>
+    
+        <!-- Instructions -->
+        <textarea name="instructions" placeholder="Instructions" required></textarea>
+    
+        <!-- Category Selection -->
+        <select name="category" required>
+            <option value="Cocktail">Cocktail</option>
+            <option value="Mocktail">Mocktail</option>
+            <option value="Smoothie">Smoothie</option>
+            <option value="Coffee">Coffee</option>
+            <option value="Tea">Tea</option>
+            <option value="Juice">Juice</option>
+            <option value="Other">Other</option>
+        </select>
+    
+        <!-- Alcohol Content (checkbox) -->
+        <label>
+            Contains Alcohol:
+            <input type="checkbox" name="alcoholContent">
+        </label>
+    
+        <!-- Glass Type -->
+        <input type="text" name="glassType" placeholder="Glass Type (e.g., Highball, Martini)">
+    
+        <!-- Garnishes (optional) -->
+        <input type="text" name="garnishes[]" placeholder="Garnish (e.g., Lemon slice, Mint)">
+    
+        <!-- Submit Button -->
+        <button type="submit">Add Drink</button>
+    </form>
+</body>
+</html>

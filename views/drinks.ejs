@@ -1,20 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Drink Recipes</title>
-    <link rel="stylesheet" href="../public/css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body>
-    <h1>Drinks</h1>
-<% drinks2.forEach(drink => { %>
-    <h2><%= drink.name %> - <%= drink.category %> - <%= drink.instructions %></h2>
-    <h3>Ingredients:</h3>
+    <h1>Drink Recipes</h1>
+    <a href="/drinks/new">Add New Drink</a>
+    
     <ul>
-        <% drink.ingredients.forEach(ingredient => { %>
-            <li><%= ingredient.amount %> <%= ingredient.unit %> of <%= ingredient.name %></li>
+        <% drinks2.forEach(drink => { %>
+            <li>
+                <h3><%= drink.name %></h3>
+                <p><strong>Ingredients:</strong> <ul><%= drink.ingredients.map(i => 
+                    `${i.amount} ${i.unit} of ${i.name}`
+                  ).join('') %></ul></p>
+                <p><strong>Instructions:</strong> <%= drink.instructions %></p>
+                <p><strong>Category:</strong> <%= drink.category %></p>
+                <a href="/drinks/<%= drink._id %>/edit">Edit</a>
+                <form action="/drinks/<%= drink._id %>?_method=DELETE" method="POST">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
         <% }) %>
     </ul>
-<% }) %>
-
 </body>
 </html>
+

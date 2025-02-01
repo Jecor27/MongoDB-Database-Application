@@ -5,21 +5,15 @@ const router = express.Router()
 // Get all drinks
 router.get('/', controller.getDrinks);
 
-// Get a single drink
-router.get('/:id', (req, res) => {
-    res.json({msg: 'GET a single drink'})
-})
+router.get('/new', controller.showAddForm)
+
 
 // Post a new drink
 router.post('/', controller.createDrink)
 
 // Delete a drink 
-router.delete('/:id', (req, res) => {
-    res.json({msg: 'DELETE a drink'})
-})
+router.delete('/:id', controller.deleteDrink)
 
-router.patch('/:id', (req, res) => {
-    res.json({msg: 'UPDATE a drink'})
-})
+router.put('/:id', controller.updateDrink)
 
 export default router

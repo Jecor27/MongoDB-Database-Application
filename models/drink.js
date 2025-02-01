@@ -6,7 +6,6 @@ const DrinkSchema = new Schema({
         type: String,
         required: true,
         unique: true,
-        trim: true
     },
     ingredients: [
         {
@@ -38,7 +37,6 @@ const DrinkSchema = new Schema({
         type: String, // e.g., "Highball", "Martini", "Mug"
         trim: true
     },
-    garnishes: [String], // Optional garnishes like "Lemon slice", "Mint"
     createdAt: {
         type: Date,
         default: Date.now
