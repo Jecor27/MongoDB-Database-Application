@@ -5,5 +5,16 @@
     <link rel="stylesheet" href="../public/css/styles.css">
 </head>
 <body>
+    <h1>Drinks</h1>
+<% drinks2.forEach(drink => { %>
+    <h2><%= drink.name %> - <%= drink.category %> - <%= drink.instructions %></h2>
+    <h3>Ingredients:</h3>
+    <ul>
+        <% drink.ingredients.forEach(ingredient => { %>
+            <li><%= ingredient.amount %> <%= ingredient.unit %> of <%= ingredient.name %></li>
+        <% }) %>
+    </ul>
+<% }) %>
+
 </body>
 </html>

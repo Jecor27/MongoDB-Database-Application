@@ -45,4 +45,4 @@ const DrinkSchema = new Schema({
     }
 });
 
-export default mongoose.model('Drink', DrinkSchema, 'Nexus');
+export default mongoose.model('drink', DrinkSchema, 'drinks');
