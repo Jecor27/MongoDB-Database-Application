@@ -8,7 +8,7 @@ const app = express()
 app.use(express.json())
 
 app.use((req, res, next) => {
-    console.log(req.path, req, method)
+    console.log(req.path, req)
     next()
 })
 
@@ -19,6 +19,6 @@ mongoose
     .connect(process.env.MONGO_URI)
     .then(() => {
         app.listen(process.env.PORT, () => {
-            console.log('MongoDB Connected & listening on port: ', process.env.PORT)
+            console.log('MongoDB Connected & listening on port: ',process.env.PORT)
         })
-    }).catch(err => console.log(err))
+    }).catch(err => console.log(err.message))

@@ -1,6 +1,7 @@
 import mongoose from 'mongoose'
+const Schema = mongoose.Schema
 
-const DrinkSchema = new mongoose.Schema({
+const DrinkSchema = new Schema({
     name: {
         type: String,
         required: true,
@@ -9,8 +10,14 @@ const DrinkSchema = new mongoose.Schema({
     },
     ingredients: [
         {
-            name: { type: String, required: true },
-            amount: { type: String, required: true }, // e.g., "2 oz", "1 tbsp"
+            name: {
+                type: String,
+                required: true
+            },
+            amount: {
+                type: String,
+                required: true
+            }, // e.g., "2 oz", "1 tbsp"
             unit: { type: String } // Optional field for measurement unit
         }
     ],
