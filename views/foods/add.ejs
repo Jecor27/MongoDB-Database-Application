@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Add New Food</title>
+</head>
+<body>
+    <h1>Add a New Food Recipe</h1>
+    <form action="/foods" method="POST">
+        <label for="name">Food Name:</label>
+        <input type="text" name="name" required>
+
+        <label for="instructions">Instructions:</label>
+        <textarea name="instructions" required></textarea>
+
+        <label for="ingredients">Ingredients:</label>
+        <div id="ingredients">
+            <div>
+                <input type="text" name="ingredients[0][name]" placeholder="Ingredient Name" required>
+                <input type="text" name="ingredients[0][amount]" placeholder="Amount" required>
+                <input type="text" name="ingredients[0][unit]" placeholder="Unit (optional)">
+            </div>
+        </div>
+        <button type="button" id="addIngredient">Add Another Ingredient</button>
+
+        <button type="submit">Add Food</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Food Recipes</title>
+</head>
+<body>
+    <h1>Food Recipes</h1>
+    <a href="/foods/new">Add New Food</a>
+    <ul>
+        <% foods.forEach(food => { %>
+            <li>
+                <h3><%= food.name %></h3>
+                <p><strong>Ingredients:</strong> 
+                    <%= food.ingredients.map(i => `${i.amount} ${i.unit || ''} ${i.name}`).join(', ') %>
+                </p>
+                <p><strong>Instructions:</strong> <%= food.instructions %></p>
+                
+                <form action="/foods/<%= food._id %>/delete" method="POST">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>
