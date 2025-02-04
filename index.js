@@ -1,8 +1,10 @@
 import express from 'express'
+import bodyParser from 'body-parser'
+import methodOverride from 'method-override'
 import mongoose from 'mongoose'
-import drink from './models/drink.js'
 import 'dotenv/config'
 import drinkRoutes from './routes/routes.js'
+import foodRoutes from './routes/foodroutes.js'
 import connectDB from './db.js'
 
 const app = express()
@@ -10,7 +12,8 @@ const app = express()
 // middleware
 app.set('view engine', 'ejs');
 app.use(express.json())
-app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(methodOverride('_method'));
 
 app.use((req, res, next) => {
     console.log("you hit a route")
@@ -20,15 +23,8 @@ app.use((req, res, next) => {
 
 // routes
 app.use('/drinks', drinkRoutes)
+app.use('/foods', foodRoutes);
 
 
 // connect to DB and port listening
 connectDB(app)
-
-// mongoose
-//     .connect(process.env.MONGO_URI)
-//     .then(() => {
-//         app.listen(process.env.PORT, () => {
-//             console.log('MongoDB Connected & listening on port: ',process.env.PORT)
-//         })
-//     }).catch(err => console.log(err.message))

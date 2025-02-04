@@ -18,15 +18,13 @@ export const createDrink = async (req, res) => {
     try {
         console.log('Incoming body:', req.body);
 
-        // Destructure necessary fields from req.body
         const { 
             name, 
             ingredients, 
             instructions, 
             category, 
             alcoholContent, 
-            glassType, 
-            garnishes 
+            glassType
         } = req.body;
 
         // Check if required fields are missing

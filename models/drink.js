@@ -43,4 +43,8 @@ const DrinkSchema = new Schema({
     }
 });
 
+//DrinkSchema.index({name: 1})
+DrinkSchema.index({ createdAt: -1 }); //sorting by newest drinks
+DrinkSchema.index({ category: 1 }); //filtering by category
+
 export default mongoose.model('drink', DrinkSchema, 'drinks');

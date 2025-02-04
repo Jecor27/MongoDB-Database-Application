@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Food Recipes</h1>
+    <a href="/foods/new">Add New Item</a>
+    
+    <ul>
+        <% foods.forEach(food => { %>
+            <li>
+                <h3><%= food.name %></h3>
+                <p><strong>Ingredients:</strong> <ul><%= food.ingredients.map(i => 
+                    `${i.amount} ${i.unit} of ${i.name}`
+                  ).join('') %></ul></p>
+                <p><strong>Instructions:</strong> <%= food.instructions %></p>
+               
+                <a href="/food/<%= food._id %>/edit">Edit</a>
+                <form action="/food/<%= food._id %>?_method=DELETE" method="POST">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>
